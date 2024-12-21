@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+       body {
+        font-family: 'Courier New', Courier, monospace;
+        flex-direction: column;
+        background-color: #2c2b2b;
+        display: flex;
+        justify-content: center; 
+        align-items:center;
+        height: 100vh;    
+        margin: 0;
+        padding-bottom:50px;
+    }
+
+        h1{
+            color:rgb(0, 255, 247);
+            text-align:center;
+        }
+        .rounded-list {
+            background-color: #444444;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 300px;
+            margin-bottom: 20px;
+            list-style-type: none; /* Removes bullet points */
+            padding: 0; 
+        }
+
+        .rounded-list a {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            align-content: center;
+            color: white;
+            text-align: center;
+            
+        }
+
+        .rounded-list li:last-child {
+            border-bottom: none; /* Remove the border from the last item */
+        }
+
+        .rounded-list li:hover {
+            background-color: #7b88ec;
+            cursor: pointer;
+        }
+        .logout-button {
+            background-color: #e34141;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px;  /* Set a fixed width for the button */
+            display: block;
+            margin: 0 auto;  
+        }
+
+        .logout-button:hover {
+            background-color: #e19b92;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome {{session['username']}}!!</h1>
+    <ul class="rounded-list">
+        <li><a href='/add_book'>Add Book</a></li>
+        <li><a href='/add_member'>Add Member</a></li>
+
+        <li><a href='/borrow_book'>Borrow Book</a></li>
+        <li><a href='/return_book'>Return Book</a></li>
+
+        <li><a href='/current_borrowed'>Books currenty Borrowed</a></li>
+        <li><a href='/borrow_history'>History</a></li>
+        
+        <li><a href='/member_list'>Member List</a></li>
+        <li><a href='/book_list'>Book List</a></li>
+        
+        
+        
+
+    </ul>
+    <form action="/logout" method="POST">
+        <button type="submit" class="logout-button">LOGOUT</button>
+    </form>
+</body>
+</html>
